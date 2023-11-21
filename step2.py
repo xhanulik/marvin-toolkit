@@ -46,7 +46,7 @@ class CiphertextGenerator(object):
         assert len(plaintext) == self.key_size, \
             "Plaintext length ({0}) doesn't match key length ({1})".format(
                     len(plaintext), self.key_size)
-        msg = self.pub_key._rawPublicKeyOp(int.from_bytes(plaintext, "big"))
+        msg = int.from_bytes(plaintext, "big")
         return int(msg).to_bytes(self.key_size, "big")
 
     types["no_structure"] = 0
