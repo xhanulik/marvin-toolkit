@@ -10,7 +10,7 @@ for size in 1024 2048 4096; do
         cat "$tmp_file" >&2
         exit 1
     fi
-    if ! x509SelfSign $name &> "$tmp_file"; then
+    if ! x509SelfSign --basicKeyUsage keyEncipherment $name &> "$tmp_file"; then
         echo "ERROR: $size bit key self-signing failed" >&2
         cat "$tmp_file" >&2
         exit 1
