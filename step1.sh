@@ -2,7 +2,7 @@
 
 . ./certgen/certgen/lib.sh
 
-for size in 1024 2048 4096; do
+for size in 512 1024 2048 4096; do
     name="rsa${size}"
     tmp_file="$(mktemp)"
     if ! x509KeyGen -s $size $name &> "$tmp_file"; then
